@@ -3,7 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro - Pérola Acessórios</title>
+    <style>
+        /* ==========================================================================
+        ESTILO SHOUJO NAPOLITANO (Morango, Baunilha e Chocolate)
+           ========================================================================== */
+
+        /* Fontes fofas e arredondadas */
+        @import url('https://googleapis.com');
+
+        :root {
+            /* Paleta Napolitana Pastel */
+            --morango: #ffb3c1;
+            --morango-escuro: #ff4d6d;
+            --baunilha: #fff0f3;
+            --chocolate: #4a3036;
+            --chocolate-claro: #8a6870;
+            --branco: #ffffff;
+            
+            --fonte-titulo: 'Cherry Bomb One', cursive;
+            --fonte-corpo: 'Comfortaa', cursive;
+        }
+
+        /* Reset Geral */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--baunilha);
+            color: var(--chocolate);
+            font-family: var(--fonte-corpo);
+            /* Listras verticais clássicas e fofas com as cores napolitanas */
+            background-image: linear-gradient(90deg, 
+                rgba(255, 179, 193, 0.2) 0%, rgba(255, 179, 193, 0.2) 33%, 
+                rgba(255, 255, 255, 0.2) 33%, rgba(255, 255, 255, 0.2) 66%, 
+                rgba(138, 104, 112, 0.1) 66%, rgba(138, 104, 112, 0.1) 100%);
+            background-size: 60px 100%;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            min-height: 100vh;
+        }
+
+        /* Cabeçalho */
+        header {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto 2rem auto;
+            text-align: center;
+            background-color: var(--branco);
+            padding: 2rem;
+            border-radius: 25px;
+            border: 4px solid var(--morango);
+            box-shadow: 0 8px 0px var(--morango);
+        }
+
+        header h1 {
+            font-family: var(--fonte-titulo);
+            font-size: 2.2rem;
+            color: var(--morango-escuro);
+            text-shadow: 2px 2px 0px var(--branco), 4px 4px 0px var(--morango);
+            margin-bottom: 0.5rem;
+            text-transform: lowercase;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: var(--chocolate-claro);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Link de Voltar Estilizado como Laço/Botão */
+        header a {
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--chocolate);
+            background-color: var(--baunilha);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            border: 2px dashed var(--morango-escuro);
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        header a:hover {
+            transform: scale(1.05);
+            background-color: var(--morango);
+            color: var(--branco);
+            border-style: solid;
+        }
+
+        /* Área do Formulário (Container Principal) */
+        main {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        form {
+            background-color: var(--branco);
+            border: 4px solid var(--morango);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 0px var(--morango);
+        }
+
+        /* Labels e Textos */
+        label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--chocolate);
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Inputs de Texto, E-mail e Select */
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            font-family: var(--fonte-corpo);
+            font-size: 0.9rem;
+            border: 3px solid var(--baunilha);
+            background-color: var(--baunilha);
+            border-radius: 15px;
+            color: var(--chocolate);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: var(--morango);
+            background-color: var(--branco);
+            box-shadow: 0 0 10px rgba(255, 179, 193, 0.5);
+        }
+
+        /* Estilização das opções de Radio */
+        .radio-group {
+            background-color: var(--baunilha);
+            padding: 1rem;
+            border-radius: 15px;
+            border: 2px dashed var(--morango);
+            margin: 0.5rem 0 1.5rem 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.6rem;
+            cursor: pointer;
+        }
+
+        .radio-option:last-child {
+            margin-bottom: 0;
+        }
+
+        input[type="radio"] {
+            accent-color: var(--morango-escuro);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Espaçamento das quebras de linha nativas */
+        br {
+            display: none; /* Desativado para usar a estrutura limpa do CSS flex/block */
+        }
+
+        /* Ajuste do agrupamento para controle de margem */
+        .form-control {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Botão Enviar com visual de Doce Popsicle */
+        button[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            font-family: var(--fonte-titulo);
+            font-size: 1.5rem;
+            color: var(--branco);
+            background: linear-gradient(135deg, var(--morango-escuro), var(--morango));
+            border: 3px solid var(--chocolate);
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 0px var(--chocolate);
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0px var(--chocolate);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0px var(--chocolate);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,55 +221,51 @@
 
     <main>
         <form>
-            <label for="nome">nome completo</label>
-            <br>
-            <input 
-            type="text"
-            id="nome"
-            name="nome"
-            placeholder="digita seu nome completo"
-            required>
-            <br><br>
-            <label for="email">E-mail</label>
-            <br>
-            <input 
-            type="email"
-                id="email"
-                name="email"
-                placeholder="digite seu email"
-                required>
-                <br><br>
+            <div class="form-control">
+                <label for="nome">nome completo</label>
+                <input 
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="digite seu nome completo"
+                    required>
+            </div>
+            
+            <div class="form-control">
+                <label for="email">E-mail</label>
+                <input 
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="digite seu email"
+                    required>
+            </div>
 
-                <label>nivel do cliente:</label><br>
-                <input 
-                type="radio"
-                id="comum"
-                name="nivel"
-                value="comum">      
-                <label for="comum">cliente comum</label><br>
-                <input 
-                type="radio"
-                id="empresa"
-                name="nivel"
-                value="empresa">
-                <label for="comum">cliente comum</label><br>
-                <input 
-                type="radio"
-                id="empresa"
-                name="nivel"
-                value="empresa">
-                <label for="empres">empresa (CNPJ)</label><br><br>
+            <div class="form-control">
+                <label>nivel do cliente:</label>
+                <div class="radio-group">
+                    <label class="radio-option" for="comum">
+                        <input type="radio" id="comum" name="nivel" value="comum" checked>      
+                        <span>cliente comum</span>
+                    </label>
+                    <label class="radio-option" for="empresa">
+                        <input type="radio" id="empresa" name="nivel" value="empresa">
+                        <span>empresa (CNPJ)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-control">
                 <label for="interesse">area de interesse</label>
                 <select name="interesse" id="interesse">
-                <option value="hardware">hardware</option>
-                <option value="perifericos">perifericos</option>
-                <option value="desenvolvimento">desenvolvimento</option>
-                </select><br><br>
-                <button>
-                <type="submit">enviar cadastro</button>
-            </form>
-        </section>
-        </main>              
-                    
-        </body>
-    </html>
+                    <option value="hardware">hardware</option>
+                    <option value="perifericos">perifericos</option>
+                    <option value="desenvolvimento">desenvolvimento</option>
+                </select>
+            </div>
+
+            <button type="submit">enviar cadastro</button>
+        </form>
+    </main>              
+</body>
+</html>
